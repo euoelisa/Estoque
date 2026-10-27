@@ -33,3 +33,9 @@ print(p1.listar_produtos())
 print(p2.listar_produtos())
 print(p3.listar_produtos())
 print(p4.listar_produtos())
+
+p1.entrada(30)
+print(p1.listar_produtos())
+
+p1.saida(15)
+print(p1.listar_produtos())
