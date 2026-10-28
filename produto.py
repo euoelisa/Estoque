@@ -1,35 +1,36 @@
 class Produto:
-    def __init__(self, codigo=None, nome=None, quantidade=0, preco=0.0, tipo=None):
-      self.codigo = codigo
-      self.nome = nome
-      self.quantidade = quantidade
-      self.preco = preco
-      self.tipo = tipo
+    def __init__(self, codigo, nome, quantidade, preco):
+        self.codigo = codigo
+        self.nome = nome
+        self.quantidade = quantidade
+        self.preco = preco
+
+
+    def situacao(self):
+        if self.quantidade == 0:
+            return "Em falta"
+        elif self.quantidade <= 4:
+            return "Repor"
+        else:
+            return "OK"
+
 
     def listar_produtos(self):
         return {
-            "codigo":self.codigo,
+            "codigo": self.codigo,
             "nome": self.nome,
             "quantidade": self.quantidade,
-            "tipo": self.tipo,
-            "situacao": self.situacao(),
-    
+            "preco": self.preco,
+            "situacao": self.situacao()
         }
-    def situacao(self):
-      if self.quantidade == 0:
-        return "Em falta"
-      elif self.quantidade <= 5:
-        return "Repor urgentemente IDIOTA!!!"
-      
-      else:
-        return "ok"
+
 
     def entrada(self, qtd):
-       self.quantidade = (self.quantidade + qtd)
+        self.quantidade = self.quantidade + qtd
+
 
     def saida(self, qtd):
-       if qtd <= self.quantidade:
-          self.quantidade = (self.quantidade - qtd)
-          return True
-       return  False  
-      
+        if qtd <= self.quantidade:
+            self.quantidade = self.quantidade - qtd
+            return True
+        return False
