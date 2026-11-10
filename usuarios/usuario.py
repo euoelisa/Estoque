@@ -51,3 +51,22 @@ class Usuario:
                 if permissao not in lista:
                     lista.append(permissao)
         return lista
+
+    # Troca a senha somente quando a senha atual for confirmada
+    def trocar_senha(self, atual, nova):
+        if not self.conferir_senha(atual):
+            return False
+
+        self._senha_hash = self._resumir(nova)
+        return True
+
+    # Devolve os dados seguros que podem ser enviados pela API
+    def para_dicionario(self):
+        return {
+            "matricula": self.matricula,
+            "nome": self.nome,
+            "papeis": self.papeis,
+            "permissoes": self.permissoes(),
+            "supervisor": self.supervisor,
+            "situacao": self.situacao,
+        }
