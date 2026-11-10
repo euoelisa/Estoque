@@ -31,3 +31,23 @@ class Usuario:
     # True se a pessoa tem esse papel
     def tem_papel(self, papel):
         return papel in self.papeis
+
+    # True se algum dos papéis ativos permite a ação informada
+    def pode(self, permissao):
+        if self.situacao != "ativo":
+            return False
+
+        for papel in self.papeis:
+            if permissao in PERMISSOES.get(papel, []):
+                return True
+        return False
+
+    # Junta as permissões dos papéis, sem repeti-las e preservando a ordem
+    def permissoes(self):
+        lista = []
+
+        for papel in self.papeis:
+            for permissao in PERMISSOES.get(papel, []):
+                if permissao not in lista:
+                    lista.append(permissao)
+        return lista
