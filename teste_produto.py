@@ -1,16 +1,32 @@
-from produtos.produto import Produto
+from produto import Produto
 
-p1 = Produto(124657, "Esmalte Rísque", 50, 7.99)
+p1 = Produto()
+p1.nome = "Esmalte Rísque"
+p1.quantidade = 50
+p1.preco = 7.99
 p1.tipo = "esmalte"
+p1.codigo = 124657
 
-p2 = Produto(347821, "Fanta UVA", 120, 10.00)
+p2 = Produto()
+p2.nome = "Fanta UVA"
+p2.quantidade = 120
+p2.preco = 10.00
 p2.tipo = "refrigerante"
+p2.codigo = 347821
 
-p3 = Produto(229074, "Água Cristal", 20, 2.99)
+p3 = Produto()
+p3.nome = "Água Cristal"
+p3.quantidade = 20
+p3.preco = 2.99
 p3.tipo = "agua"
+p3.codigo = 229074
 
-p4 = Produto(234158, "Fandangos", 58, 12.00)
+p4 = Produto()
+p4.nome = "Fandangos"
+p4.quantidade = 58
+p4.preco = 12.00
 p4.tipo = "salgadinho"
+p4.codigo = 234158
 
 
 print(p1.listar_produtos())
